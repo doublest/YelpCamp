@@ -2,13 +2,13 @@
   uses: docker/build-push-action@v1.1.0
   with:
     # Username used to log in to a Docker registry. If not set then no login will occur
-    username: # optional
+    username: doublest
     # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
-    password: # optional
+    password: ss09662
     # Server address of Docker registry. If not set then will default to Docker Hub
     registry: # optional
     # Docker repository to tag the image with
-    repository: 
+    repository: yelpcamp
     # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
     tags: # optional
     # Automatically tags the built image with the git reference as per the readme
@@ -22,7 +22,7 @@
     # Sets the target stage to build
     target: # optional
     # Always attempt to pull a newer version of the image
-    always_pull: # optional
+    always_pull: yes
     # Comma-delimited list of build-time variables
     build_args: # optional
     # Comma-delimited list of images to consider as cache sources

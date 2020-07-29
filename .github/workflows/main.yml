@@ -4,7 +4,7 @@
     # Username used to log in to a Docker registry. If not set then no login will occur
     username: doublest
     # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
-    password: ss09662
+    password: lol
     # Server address of Docker registry. If not set then will default to Docker Hub
     registry: # optional
     # Docker repository to tag the image with

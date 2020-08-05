@@ -15,7 +15,8 @@ mongoose.connect('mongodb://localhost:27017/yelp_camp', {
 //SETUP SCHEMA
 var campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 
 //Define Model
@@ -25,7 +26,8 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 /* Campground.create(
     {
         name: "Salmon Greek 3", 
-        image: "https://d2g85s3tfaxbly.cloudfront.net/photo/camp/56436/feature_Mt_Oak_Campround-f3.jpg"
+        image: "https://d2g85s3tfaxbly.cloudfront.net/photo/camp/56436/feature_Mt_Oak_Campround-f3.jpg",
+        description: "More Lorem, les ipsum, foo, barr"
     }, function(err, campground){
             if(err){
                 console.log("OOOPS SOMETHING WENT WRONG");
@@ -50,7 +52,7 @@ app.get("/campgrounds", function(req, res){
             console.log("OOPS SOMETHING WENT WRONG");
             console.log(err);
         } else {
-            res.render("campgrounds", {campgrounds:allCampgrounds});
+            res.render("index", {campgrounds:allCampgrounds});
         }
     });
 });
@@ -64,7 +66,8 @@ app.post("/campgrounds", function(req, res){
     //get data from form and add to array
     var name = req.body.name;
     var image = req.body.image;
-    var newCampgrounds = {name: name, image: image};
+    var desc = req.body.description; 
+    var newCampgrounds = {name: name, image: image, description: desc};
     //Create a new and save to the DB
     Campground.create(newCampgrounds, function(err, newlyCreated){
         if(err){
@@ -74,6 +77,18 @@ app.post("/campgrounds", function(req, res){
             res.redirect("/campgrounds");
         }
     });
+});
+//Route Show Page - with more detail about the campground
+app.get("/campgrounds/:id", function(req, res){
+    //find the campground with the provided ID
+    Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+        } else {
+            //render show template with the campground  
+            res.render("show", {campground: foundCampground});
+        }
+    }); 
 });
 
 app.listen(7000, function(){

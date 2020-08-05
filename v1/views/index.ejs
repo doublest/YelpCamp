@@ -19,8 +19,11 @@
                     <div class="img-thumbnail">
                         <img class="img-fluid" style="height: 100px" src="<%= campground.image %>">
                         <div class="caption">
-                            <%= campground.name %> 
+                            <%= campground.name %>
                         </div>
+                        <p>
+                            <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                        </p>
                     </div>                    
                 </div>
             <% }); %>

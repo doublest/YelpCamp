@@ -32,7 +32,7 @@ var Blog = mongoose.model("Blog", blogSchema);
 //TEST ENTRY
 /* Blog.create({
     title: "test blog",
-    image: "https://images.unsplash.com/photo-1596878276931-02dfa8ba94a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+    image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
     body: "HELLO THIS IS A BLOG POST!",
 
 }); */
@@ -42,7 +42,7 @@ var Blog = mongoose.model("Blog", blogSchema);
 app.get("/", function(req, res){
     res.redirect("/blogs");
 })
-
+//INDEX ROUTE
 app.get("/blogs", function(req, res){
     Blog.find({}, function(err, blogs){
         if(err){
@@ -53,7 +53,30 @@ app.get("/blogs", function(req, res){
         }
     });
 });
+//NEW ROUTE
+app.get("/blogs/new", function(req, res){
+    res.render("new");
+});
 
+//CREATE
+app.post("/blogs", function(req, res){
+    //create blog
+    Blog.create(req.body.blog, function(err, newBlog){
+        if(err){
+            console.log("SOMETHING WENT WRONG CREATING A NEW BLOG");
+            console.log(err);
+            res.render("new");
+        } else {
+            //redirect to index
+            res.redirect("/blogs");
+        };
+    });
+});
+
+//SHOW
+app.get("/blogs/:id", function(req, res){
+    res.send("SHOW PAGE")
+})
 
 //SERVER CHECK
 app.listen(8000, function(){

@@ -1,4 +1,4 @@
-<h1>HELLO THERE</h1>
+<%- include("partials/header") %>  
 
 <% blogs.forEach(function(blog){ %>
     <div>
@@ -6,4 +6,7 @@
         <img src="<%= blog.image %>">
         <span><%= blog.created %></span>
         <p><%= blog.body %></p>
+        <a href="/blogs/<% blog._id %>">Read More</a>
 <% }) %>
+
+<%- include("partials/footer") %>  

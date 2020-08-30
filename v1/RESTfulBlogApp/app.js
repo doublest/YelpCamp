@@ -65,6 +65,10 @@ app.get("/blogs/new", function(req, res){
 //CREATE
 app.post("/blogs", function(req, res){
     //create blog
+    console.log(req.body);
+    req.body.blog.body = req.sanitize(req.body.blog.body);
+    console.log("---------------");
+    console.log(req.body);
     Blog.create(req.body.blog, function(err, newBlog){
         if(err){
             console.log("SOMETHING WENT WRONG CREATING A NEW BLOG");
@@ -101,6 +105,7 @@ app.get("/blogs/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/blogs/:id", function(req, res){
+    req.body.blog.body = req.sanitize(req.body.blog.body);
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
         if(err){
             res.redirect("/blogs");

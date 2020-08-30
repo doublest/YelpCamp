@@ -1,15 +1,17 @@
 //include npm modules
-var     mongoose        = require("mongoose"),
-        bodyParser      = require("body-parser"),
-        methodOverride  = require("method-override"),
-        express         = require("express"),   
-        app             = express();
+var     mongoose            = require("mongoose"),
+        bodyParser          = require("body-parser"),
+        methodOverride      = require("method-override"),
+        expressSanitizer    = require("express-sanitizer"),
+        express             = require("express"),   
+        app                 = express();
 
 
 //app config
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
 //define DB connection
@@ -107,6 +109,17 @@ app.put("/blogs/:id", function(req, res){
         } 
     });
 })
+
+app.delete("/blogs/:id", function(req, res){
+    //destroy blog
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs");
+        }
+    });
+});
 
 //SERVER CHECK
 app.listen(8000, function(){

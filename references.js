@@ -7,27 +7,9 @@ mongoose.connect('mongodb://localhost:27017/blog_demo_2', {
 .then(() => console.log('Connected to DB!'))
 .catch(error => console.log(error.message));
 
-//Post - title, content
-var postSchema = new mongoose.Schema({
-    title: String,
-    content:String
-});
+var Post = require("./models/posts");
 
-var Post = mongoose.model("Post", postSchema);
-
-//User email, name
-var userSchema = new mongoose.Schema({
-    email: String,
-    name: String,
-    posts: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Post"
-        }
-    ]
-});
-
-var User = mongoose.model("User", userSchema);
+var User = require("./models/users");
 
 // Post.create({
 //     title: "How to cook the best burger Pt. 3",
@@ -49,10 +31,10 @@ var User = mongoose.model("User", userSchema);
 //     });
 // });
 
-User.findOne({email: "bob@gmail.com"}).populate("posts").exec(function(err, user){
-    if(err){
-        console.log(err);
-    } else {
-        console.log(user);
-    }
-});
+// User.findOne({email: "bob@gmail.com"}).populate("posts").exec(function(err, user){
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(user);
+//     }
+// });

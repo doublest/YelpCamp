@@ -2,9 +2,12 @@
 var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
-    mongoose        = require("mongoose")
+    mongoose        = require("mongoose"),
+    Campground      = require("./models/campgrounds"),
+    seedDB          = require("./seeds")
 
 //connection to the database
+seedDB();
 mongoose.connect('mongodb://localhost:27017/yelp_camp', {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -12,15 +15,7 @@ mongoose.connect('mongodb://localhost:27017/yelp_camp', {
 .then(() => console.log('Connected to DB!'))
 .catch(error => console.log(error.message));
 
-//SETUP SCHEMA
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
 
-//Define Model
-var Campground = mongoose.model("Campground", campgroundSchema);
 
 //temp test create campground
 /* Campground.create(

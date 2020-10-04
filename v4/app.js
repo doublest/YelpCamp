@@ -69,6 +69,14 @@ app.get("/campgrounds/:id", function(req, res){
     }); 
 });
 
+// =======================
+// Comment Routes
+// =======================
+
+app.get("/campgrounds/:id/comments/new", function(req, res){
+    res.render("new");
+});
+
 app.listen(7000, function(){
     console.log("YelpCamp App hat startet on Port 7000");
 });

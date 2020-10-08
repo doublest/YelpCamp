@@ -7,22 +7,22 @@ var data = [
     {
         name: "Clouds Rest",
         image: "https://images.pexels.com/photos/4268158/pexels-photo-4268158.jpeg?auto=compress&cs=tinysrgb&h=350",
-        description: "lorem ipsum dolor"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus vel facilisis volutpat est velit egestas dui. Id nibh tortor id aliquet lectus. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Dignissim enim sit amet venenatis urna cursus eget. Pretium viverra suspendisse potenti nullam ac tortor vitae. Ornare quam viverra orci sagittis eu. Sed turpis tincidunt id aliquet. Adipiscing elit ut aliquam purus sit amet luctus. Eget aliquet nibh praesent tristique magna. Ut consequat semper viverra nam libero."
     },
     {
         name: "Tent Village",
         image: "https://cdn.pixabay.com/photo/2018/05/16/15/49/camper-3406137_1280.jpg",
-        description: "Beautiful view"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus vel facilisis volutpat est velit egestas dui. Id nibh tortor id aliquet lectus. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Dignissim enim sit amet venenatis urna cursus eget. Pretium viverra suspendisse potenti nullam ac tortor vitae. Ornare quam viverra orci sagittis eu. Sed turpis tincidunt id aliquet. Adipiscing elit ut aliquam purus sit amet luctus. Eget aliquet nibh praesent tristique magna. Ut consequat semper viverra nam libero."
     }, 
     {
         name: "Lake House",
         image: "https://cdn.pixabay.com/photo/2017/10/07/01/01/bach-leek-2825197_1280.jpg",
-        description: "Nice House on the Lake"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus vel facilisis volutpat est velit egestas dui. Id nibh tortor id aliquet lectus. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Dignissim enim sit amet venenatis urna cursus eget. Pretium viverra suspendisse potenti nullam ac tortor vitae. Ornare quam viverra orci sagittis eu. Sed turpis tincidunt id aliquet. Adipiscing elit ut aliquam purus sit amet luctus. Eget aliquet nibh praesent tristique magna. Ut consequat semper viverra nam libero."
     },
     {
         name: "Beavers Creek",
         image: "https://cdn.pixabay.com/photo/2016/02/07/19/48/aurora-1185464_1280.jpg",
-        description: "no beavers here"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus vel facilisis volutpat est velit egestas dui. Id nibh tortor id aliquet lectus. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Dignissim enim sit amet venenatis urna cursus eget. Pretium viverra suspendisse potenti nullam ac tortor vitae. Ornare quam viverra orci sagittis eu. Sed turpis tincidunt id aliquet. Adipiscing elit ut aliquam purus sit amet luctus. Eget aliquet nibh praesent tristique magna. Ut consequat semper viverra nam libero."
     }
 ];
 

@@ -1,3 +1,4 @@
 # YelpCamp
 
-in this repository i will track my web dev course progress.
+Since there was Update of the couse, the progress will continue [here](https://github.com/doublest/wdb20)
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>RESTful Routes</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <header class="jumbotron">
+                <h1>Overview RESTful Routes</h1>
+                <p>A table of all 7 RESTful routes</p>
+            </header>
+        
+            <div class="container">
+                <blockquote class="blockquote">
+                    <p class="mb-0">Representational state transfer (REST) is a software architectural style that defines a set of constraints to be used for creating Web services. Web services that conform to the REST architectural style, called RESTful Web services, provide interoperability between computer systems on the internet. RESTful Web services allow the requesting systems to access and manipulate textual representations of Web resources by using a uniform and predefined set of stateless operations. Other kinds of Web services, such as SOAP Web services, expose their own arbitrary sets of operations...</p>
+                    <footer class="blockquote-footer">Wikipdia: <cite title="Source Title">https://en.wikipedia.org/wiki/Representational_state_transfer</cite></footer>
+                  </blockquote>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Path</th>
+                    <th>HTTP Verb</th>
+                    <th>Purpose</th>
+                    <th>Mongoose Method</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Index</td>
+                    <td>/dogs</td>                   
+                    <td>GET</td>
+                    <td>List all dogs</td>
+                    <td>Dog.find()</td>                  
+                </tr>
+                <tr style="background-color: lightgreen;">
+                    <td>New</td>
+                    <td>/dogs/new</td>                   
+                    <td>GET</td>
+                    <td>Show new dogs form</td>
+                    <td>N/A</td> 
+                </tr>
+                <tr style="background-color: lightseagreen;">
+                    <td>Create</td>
+                    <td>/dogs/</td>                   
+                    <td>POST</td>
+                    <td>Create new dogs, and the redirect somewhere</td> 
+                    <td>Dog.create()</td>
+                </tr>
+                <tr style="background-color: mediumaquamarine;">
+                    <td>Show</td>
+                    <td>/dogs/:id/</td>                   
+                    <td>GET</td>
+                    <td>Show info about one specific dog</td>
+                    <td>Dog.finfByID()</td>
+                </tr>
+                <tr style="background-color: wheat;">
+                    <td>Edit</td>
+                    <td>/dogs/:id/edit</td>                   
+                    <td>GET</td>
+                    <td>Show edit form for one dog</td> 
+                    <td>Dog.findByID()</td>
+                </tr>
+                <tr style="background-color: wheat;">
+                    <td>Update</td>
+                    <td>/dogs/:id</td>                   
+                    <td>PUT</td>
+                    <td>Update a particular dog and the redirect somewhere</td>
+                    <td>Dog.findByIdandUpdate()</td>
+                </tr>
+                <tr style="background-color: salmon;">
+                    <td>Destroy</td>
+                    <td>/dogs/:id</td>                   
+                    <td>DESTROY</td>
+                    <td>Delete a particular dog and then redirect somewhere</td> 
+                    <td>Dog.findByIdandRemove()</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+

@@ -2,41 +2,18 @@
 var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
-    mongoose        = require("mongoose")
+    mongoose        = require("mongoose"),
+    Campground      = require("./models/campgrounds"),
+    seedDB          = require("./seeds")
 
 //connection to the database
+seedDB();
 mongoose.connect('mongodb://localhost:27017/yelp_camp', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
 .then(() => console.log('Connected to DB!'))
 .catch(error => console.log(error.message));
-
-//SETUP SCHEMA
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-//Define Model
-var Campground = mongoose.model("Campground", campgroundSchema);
-
-//temp test create campground
-/* Campground.create(
-    {
-        name: "Salmon Greek 3", 
-        image: "https://d2g85s3tfaxbly.cloudfront.net/photo/camp/56436/feature_Mt_Oak_Campround-f3.jpg",
-        description: "More Lorem, les ipsum, foo, barr"
-    }, function(err, campground){
-            if(err){
-                console.log("OOOPS SOMETHING WENT WRONG");
-                console.log(err);
-            } else {
-                console.log("Add A NEW CAMPGROUND");
-                console.log(campground);
-            }
-}); */
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -81,10 +58,11 @@ app.post("/campgrounds", function(req, res){
 //Route Show Page - with more detail about the campground
 app.get("/campgrounds/:id", function(req, res){
     //find the campground with the provided ID
-    Campground.findById(req.params.id, function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
         if(err){
             console.log(err);
         } else {
+            console.log(foundCampground);
             //render show template with the campground  
             res.render("show", {campground: foundCampground});
         }
